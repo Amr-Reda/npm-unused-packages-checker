@@ -32,7 +32,7 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
-    const testFolder = './';
+    const testFolder = '/home/runner/work/with-packagelock/with-packagelock/';
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
     // const content = fs.readFileSync(testFolder, 'utf8')
