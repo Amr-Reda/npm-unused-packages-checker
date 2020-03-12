@@ -29,7 +29,7 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
-    const testFolder = path.join(__dirname, './');
+    const testFolder = './';
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
     // const content = fs.readFileSync(testFolder, 'utf8')
@@ -42,13 +42,14 @@ const check = (ignoredPaths) => {
     const cli = new CLIEngine(cliConfig)
     try {
         
-        let report = cli.executeOnFiles([path.join(__dirname, './')])
+        let report = cli.executeOnFiles(['./'])
         //console.log(JSON.stringify(report,null,2)); 
         return report
     } catch (error) {
         
         if (error.message.indexOf('No files matching') == -1) {
             //TODO: report problem in the rules
+            console.log(error);
         }else{
             console.log(error);
         }
