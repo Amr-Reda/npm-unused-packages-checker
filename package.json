@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
+  }
 }
