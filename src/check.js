@@ -8,7 +8,7 @@ const check = (ignoredPaths) => {
     console.log('====================================');
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
-        resolvePluginsRelativeTo: __dirname,
+        resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src',
         baseConfig: {
             parser: "@typescript-eslint/parser",
             env: {
