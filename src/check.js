@@ -3,33 +3,34 @@ const fs = require('fs');
 const path = require('path');
 // let test = require('@typescript-eslint/parser');
 
-const check = (ignoredPaths) => {
-    let cliConfig = {
-        extensions: ['.js', '.ts', '.jsx', '.tsx'],
-        baseConfig: {
-            // parser: "@typescript-eslint/parser",
-            env: {
-                node: true,
-                es6: true
-            },
-            parserOptions: {
-                "sourceType": "module",
-                ecmaVersion: 10,
-                ecmaFeatures: {
-                    jsx: true
-                }
-            },
-            plugins: [
-                "package-detection"
-            ],
-            rules: {
-                "package-detection/package-detection": 2
-            },
-            ignorePatterns: ignoredPaths
+let cliConfig = {
+    extensions: ['.js', '.ts', '.jsx', '.tsx'],
+    baseConfig: {
+        // parser: "@typescript-eslint/parser",
+        env: {
+            node: true,
+            es6: true
         },
-        useEslintrc: false,
-    }
+        parserOptions: {
+            "sourceType": "module",
+            ecmaVersion: 10,
+            ecmaFeatures: {
+                jsx: true
+            }
+        },
+        plugins: [
+            "package-detection"
+        ],
+        rules: {
+            "package-detection/package-detection": 2
+        },
+        ignorePatterns: []
+    },
+    useEslintrc: false,
+}
 
+const check = (ignoredPaths) => {
+    cliConfig.baseConfig.ignorePatterns.push(...ignoredPaths)
     const testFolder = './';
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
