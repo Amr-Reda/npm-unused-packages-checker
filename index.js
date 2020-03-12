@@ -9,7 +9,7 @@ try {
 
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = '/home/runner/work/'+github.context.repo.repo;
+    const testFolder = '/home/runner/work/with-packagelock';
     console.log(github.context.workflow);
     console.log(github.context.repo.repo);
     
