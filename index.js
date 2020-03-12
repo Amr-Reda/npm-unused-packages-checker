@@ -29,7 +29,7 @@ try {
     });
     console.log('====================================');
     let dir = path.join(__dirname, testFolder)
-    fs.readdirSync(dir).forEach(file => {
+    fs.readdirSync('/').forEach(file => {
       console.log('file2 ',file);
     });
     // fs.readdirSync('/').forEach(file => {
