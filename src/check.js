@@ -8,6 +8,7 @@ const check = (ignoredPaths) => {
     console.log('====================================');
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
+        resolvePluginsRelativeTo: __dirname,
         baseConfig: {
             parser: "@typescript-eslint/parser",
             env: {
@@ -21,7 +22,6 @@ const check = (ignoredPaths) => {
                     jsx: true
                 }
             },
-            resolvePluginsRelativeTo: __dirname,
             plugins: [
                 "package-detection"
             ],
