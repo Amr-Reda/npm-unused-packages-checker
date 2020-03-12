@@ -1,7 +1,7 @@
 const { CLIEngine } = require('eslint');
 const fs = require('fs');
 const path = require('path');
-let test = require('@typescript-eslint/parser');
+// let test = require('@typescript-eslint/parser');
 
 const check = (ignoredPaths) => {
     let cliConfig = {
