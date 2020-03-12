@@ -35,7 +35,7 @@ const check = (ignoredPaths) => {
     // console.log('=ff===================================');
     // console.log(content);
     fs.readdirSync(testFolder).forEach(file => {
-        console.log('file ',file);
+        console.log('file=> ',file);
     });
 
     const cli = new CLIEngine(cliConfig)
