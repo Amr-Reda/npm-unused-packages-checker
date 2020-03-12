@@ -1,5 +1,6 @@
 const { CLIEngine } = require('eslint');
 const fs = require('fs');
+const path = require('path');
 
 const check = (ignoredPaths) => {
     let cliConfig = {
@@ -41,7 +42,7 @@ const check = (ignoredPaths) => {
     const cli = new CLIEngine(cliConfig)
     try {
         
-        let report = cli.executeOnFiles(['./'])
+        let report = cli.executeOnFiles([path.join(__dirname, './')])
         //console.log(JSON.stringify(report,null,2)); 
         return report
     } catch (error) {
