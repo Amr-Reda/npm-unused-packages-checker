@@ -18,20 +18,20 @@ try {
     console.log('====================================');
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = './';
-    // console.log('github.context.workflow ', github.context.);
-    // console.log('github.context.repo ', github.context.repo.repo);
-    // const content = fs.readFileSync(testFolder, 'utf8')
-    // console.log('=ff===================================');
-    // console.log(content);
-    fs.readdirSync(testFolder).forEach(file => {
-        console.log('file ',file);
-    });
-    console.log('====================================');
-    let dir = path.join(__dirname, testFolder)
-    fs.readdirSync('/').forEach(file => {
-      console.log('file2 ',file);
-    });
+    // const testFolder = './';
+    // // console.log('github.context.workflow ', github.context.);
+    // // console.log('github.context.repo ', github.context.repo.repo);
+    // // const content = fs.readFileSync(testFolder, 'utf8')
+    // // console.log('=ff===================================');
+    // // console.log(content);
+    // fs.readdirSync(testFolder).forEach(file => {
+    //     console.log('file ',file);
+    // });
+    // console.log('====================================');
+    // let dir = path.join(__dirname, testFolder)
+    // fs.readdirSync('/').forEach(file => {
+    //   console.log('file2 ',file);
+    // });
     // fs.readdirSync('/').forEach(file => {
     //   console.log(file);
     // });

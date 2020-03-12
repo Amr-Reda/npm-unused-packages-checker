@@ -27,6 +27,16 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
+    const testFolder = './';
+    // console.log('github.context.workflow ', github.context.);
+    // console.log('github.context.repo ', github.context.repo.repo);
+    // const content = fs.readFileSync(testFolder, 'utf8')
+    // console.log('=ff===================================');
+    // console.log(content);
+    fs.readdirSync(testFolder).forEach(file => {
+        console.log('file ',file);
+    });
+    
     const cli = new CLIEngine(cliConfig)
     try {
         let report = cli.executeOnFiles(['/'])
