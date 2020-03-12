@@ -4,11 +4,12 @@ const path = require('path');
 
 const check = (ignoredPaths) => {
     console.log('====================================');
-    console.log(__dirname);
+    console.log(process.cwd());
     console.log('====================================');
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
-        resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src',
+        resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
+        cwd: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
         baseConfig: {
             parser: "@typescript-eslint/parser",
             env: {
@@ -33,17 +34,18 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
-    const testFolder = '/home/runner/work/with-packagelock/with-packagelock/';
-    // console.log('github.context.workflow ', github.context.);
-    // console.log('github.context.repo ', github.context.repo.repo);
-    // const content = fs.readFileSync(testFolder, 'utf8')
-    // console.log('=ff===================================');
-    // console.log(content);
-    fs.readdirSync(testFolder).forEach(file => {
-        console.log('file=> ',file);
-    });
+    // const testFolder = '/home/runner/work/with-packagelock/with-packagelock/';
+    // // console.log('github.context.workflow ', github.context.);
+    // // console.log('github.context.repo ', github.context.repo.repo);
+    // // const content = fs.readFileSync(testFolder, 'utf8')
+    // // console.log('=ff===================================');
+    // // console.log(content);
+    // fs.readdirSync(testFolder).forEach(file => {
+    //     console.log('file=> ',file);
+    // });
 
     const cli = new CLIEngine(cliConfig)
+    // cli.getConfigForFile()
     try {
         
         let report = cli.executeOnFiles(['/home/runner/work/with-packagelock/with-packagelock/'])
