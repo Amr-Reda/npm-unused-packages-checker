@@ -13,6 +13,7 @@ try {
     let result = Check(ignoredPaths)
     console.log('====================================');
     console.log(result);
+    console.log(__dirname);
     console.log('====================================');
     core.setOutput("NOT_USED_PACKAGES", "test");
     
@@ -22,9 +23,12 @@ try {
     // const content = fs.readFileSync(testFolder, 'utf8')
     // console.log('=ff===================================');
     // console.log(content);
-    // console.log('====================================');
     fs.readdirSync(testFolder).forEach(file => {
-      console.log('file ',file);
+        console.log('file ',file);
+    });
+    console.log('====================================');
+    fs.readdirSync(__dirname + '/').forEach(file => {
+      console.log('file2 ',file);
     });
     // fs.readdirSync('/').forEach(file => {
     //   console.log(file);
