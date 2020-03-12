@@ -1,0 +1,17 @@
+name: 'npm unused packages checker'
+description: 'check all dependencies are used in the code'
+inputs:
+  IGNORE_PATHS:
+    description: 'list of paths or files to ignore it'
+    required: false
+    default: ''
+  IGNORE_PACKAGES:
+    description: 'list of packages that exist in package.json and not used in the code to ignore'
+    required: false
+    default: ''
+outputs:
+  NOT_USED_PACKAGES:
+    description: 'list of packages in package.json and not used in the code'
+runs:
+  using: 'node12'
+  main: 'index.js'
