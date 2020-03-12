@@ -11,6 +11,11 @@ try {
     // console.log(`Hello ${nameToGreet}!`);
     const ignoredPaths = core.getInput('IGNORE_PATHS');
     const ignoredPackages = core.getInput('IGNORE_PACKAGES');
+    console.log('===ignoredPaths=================================');
+    console.log(ignoredPaths);
+    console.log('====ignoredPackages================================');
+    console.log(ignoredPackages);
+    console.log('====================================');
 
     let result = Check(ignoredPaths)
     let usedPackages = ResultHandler(result)
