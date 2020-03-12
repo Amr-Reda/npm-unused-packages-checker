@@ -11,7 +11,7 @@ try {
     
     const testFolder = '/home/runner/work/with-packagelock';
     console.log(github.context.workflow);
-    console.log(github.context.repo.repo);
+    // console.log(github.context.repo.repo);
     
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
