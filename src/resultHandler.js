@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path')
 
 const resultHandler = (report) => {
-        
+
     // get all dependencies names that used by developer code
     let packages = []
     for (const key in report.results) {
@@ -19,6 +19,7 @@ const resultHandler = (report) => {
 
     // get all files paths in the repo
     // then filter paths to package.json files only
+    // !let repoFullPath = __dirname + '/../'
     let repoFullPath = process.cwd()
     let allFilesPaths = getAllFiles(repoFullPath)
     let allPackagesJsonPaths = []
@@ -30,41 +31,34 @@ const resultHandler = (report) => {
     
     // read all the package.json of the repo
     // then get the dependencies in the package.json and compare it with package required in the code
-    let usedPackages = []
-    let unUsedPackage = []
-    for (const packageJsonPath of allPackagesJsonPaths) {
+    let results = {}
+    for (let packageJsonPath of allPackagesJsonPaths) {
         let packageDependencies = getPackages(packageJsonPath)
+        packageJsonPath = packageJsonPath.replace(repoFullPath, '')
 
         // get used dependencies in the package.json
-        let tempUsedPackages = []
         for (const pkg of packages) {
             if (packageDependencies && packageDependencies[pkg]) {
-                tempUsedPackages.push({
-                    package_name: pkg,
-                    package_manager_path: packageJsonPath.replace(repoFullPath, '')
-                })
+                if (!results[packageJsonPath]) {                    
+                    results[packageJsonPath] = {
+                        usedPackages: [],
+                        unUsedPackages: []
+                    }
+                }
+                results[packageJsonPath].usedPackages.push(pkg)
             }
         }
 
-        usedPackages.push(...tempUsedPackages)
-        tempUsedPackages = tempUsedPackages.map(pkg => pkg.package_name)
-
         // get unused dependencies in the package.json
         for (const pkgName in packageDependencies) {
-            if (!tempUsedPackages.includes(pkgName)) {
-                unUsedPackage.push({
-                    package_name: pkgName,
-                    package_manager_path: packageJsonPath.replace(repoFullPath, '')
-                })
+            if (results[packageJsonPath] && !results[packageJsonPath].usedPackages.includes(pkgName)) {
+                results[packageJsonPath].unUsedPackages.push(pkgName)
             }
         }
         
     }
     
-    return {
-        usedPackages,
-        unUsedPackage
-    };
+    return results;
 }
 
 const getPackages = (filePath) => {

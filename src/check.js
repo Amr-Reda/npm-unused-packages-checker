@@ -32,6 +32,7 @@ const check = (ignoredPaths) => {
     const cli = new CLIEngine(cliConfig)
     try {
         let report = cli.executeOnFiles([process.cwd() + '/'])
+        //! let report = cli.executeOnFiles([__dirname + '/../'])
         return report
     } catch (error) {
         
