@@ -1,12 +1,13 @@
 const { CLIEngine } = require('eslint');
 const fs = require('fs');
 const path = require('path');
+let test = require('@typescript-eslint/parser');
 
 const check = (ignoredPaths) => {
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
         baseConfig: {
-            parser: "@typescript-eslint/parser",
+            // parser: "@typescript-eslint/parser",
             env: {
                 node: true,
                 es6: true
