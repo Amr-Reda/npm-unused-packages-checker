@@ -8,8 +8,8 @@ const check = (ignoredPaths) => {
     console.log('====================================');
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
-        resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
-        cwd: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
+        // resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
+        cwd: __dirname,
         baseConfig: {
             parser: "@typescript-eslint/parser",
             env: {
@@ -48,7 +48,7 @@ const check = (ignoredPaths) => {
     // cli.getConfigForFile()
     try {
         
-        let report = cli.executeOnFiles(['/home/runner/work/with-packagelock/with-packagelock/'])
+        let report = cli.executeOnFiles([process.cwd() + '/'])
         //console.log(JSON.stringify(report,null,2)); 
         return report
     } catch (error) {
