@@ -7,13 +7,14 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["github", "actions", "packages", "detection"],
+  "author": "amrreda547@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.3",
     "@actions/github": "^2.1.1",
     "eslint": "^6.8.0",
+    "eslint-plugin-package-detection": "file:src/Rules/eslint-plugin-package-detection",
     "typescript": "^3.8.3"
   }
 }

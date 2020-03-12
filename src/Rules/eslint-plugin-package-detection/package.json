@@ -1,0 +1,13 @@
+{
+    "name": "eslint-plugin-package-detection",
+    "version": "1.0.0",
+    "description": "detect all package usage",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["plugin", "eslint", "detection"],
+    "author": "amrreda547@gmail.com",
+    "license": "MIT"
+  }
+  
