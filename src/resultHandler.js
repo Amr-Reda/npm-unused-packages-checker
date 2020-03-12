@@ -30,23 +30,41 @@ const resultHandler = (report) => {
     
     // read all the package.json of the repo
     // then get the dependencies in the package.json and compare it with package required in the code
-    // then return all used packages in package.json and required in the code
     let usedPackages = []
+    let unUsedPackage = []
     for (const packageJsonPath of allPackagesJsonPaths) {
         let packageDependencies = getPackages(packageJsonPath)
 
+        // get used dependencies in the package.json
+        let tempUsedPackages = []
         for (const pkg of packages) {
             if (packageDependencies && packageDependencies[pkg]) {
-                usedPackages.push({
+                tempUsedPackages.push({
                     package_name: pkg,
+                    package_manager_path: packageJsonPath.replace(repoFullPath, '')
+                })
+            }
+        }
+
+        usedPackages.push(...tempUsedPackages)
+        tempUsedPackages = tempUsedPackages.map(pkg => pkg.package_name)
+
+        // get unused dependencies in the package.json
+        for (const pkgName in packageDependencies) {
+            if (!tempUsedPackages.includes(pkgName)) {
+                unUsedPackage.push({
+                    package_name: pkgName,
                     package_manager_path: packageJsonPath.replace(repoFullPath, '')
                 })
             }
         }
         
     }
-
-    return usedPackages;
+    
+    return {
+        usedPackages,
+        unUsedPackage
+    };
 }
 
 const getPackages = (filePath) => {

@@ -18,9 +18,12 @@ try {
     console.log('====================================');
 
     let result = Check(ignoredPaths)
-    let usedPackages = ResultHandler(result)
+    let packages = ResultHandler(result)
     console.log('=======usedPackages=============================');
-    console.log(usedPackages);
+    console.log(packages.usedPackages);
+    console.log('====================================');
+    console.log('=======unUsedPackages=============================');
+    console.log(packages.unUsedPackages);
     console.log('====================================');
     core.setOutput("NOT_USED_PACKAGES", "test");
     
