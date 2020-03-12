@@ -1,12 +1,12 @@
 name: 'npm unused packages checker'
 description: 'check all dependencies are used in the code'
 inputs:
-  IGNORE_PATHS:
-    description: 'list of paths or files to ignore it'
+  IGNORE_PATTERNS:
+    description: 'list of Glob patterns for paths to ignore'
     required: false
     default: ''
   IGNORE_PACKAGES:
-    description: 'list of packages that exist in package.json and not used in the code to ignore'
+    description: 'list of packages that exist in package.json and not used in the code to ignore and mark them as used'
     required: false
     default: ''
 outputs:

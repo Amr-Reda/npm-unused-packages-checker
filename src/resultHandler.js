@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 
-const resultHandler = (report) => {
+const resultHandler = (report, ignoredPackages) => {
 
     // get all dependencies names that used by developer code
     let packages = []
@@ -52,7 +52,11 @@ const resultHandler = (report) => {
         // get unused dependencies in the package.json
         for (const pkgName in packageDependencies) {
             if (results[packageJsonPath] && !results[packageJsonPath].usedPackages.includes(pkgName)) {
-                results[packageJsonPath].unUsedPackages.push(pkgName)
+                if (ignoredPackages.includes(pkgName)) {
+                    results[packageJsonPath].usedPackages.push(pkgName)
+                } else {
+                    results[packageJsonPath].unUsedPackages.push(pkgName)
+                }
             }
         }
         

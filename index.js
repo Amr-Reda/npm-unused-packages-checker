@@ -18,7 +18,7 @@ try {
     console.log('====================================');
 
     let result = Check(ignoredPaths)
-    let packages = ResultHandler(result)
+    let packages = ResultHandler(result, ignoredPackages)
     console.log('=======packages=============================');
     console.log(packages);
     console.log('====================================');
