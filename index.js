@@ -15,6 +15,9 @@ try {
     console.log(ignoredPackages);
     console.log('====================================');
 
+    console.log('====================================');
+    console.log(ignoredPaths instanceof Array);
+    console.log('====================================');
     let result = Check(ignoredPaths)
     let packages = ResultHandler(result, ignoredPackages)
     console.log('=======packages=============================');
