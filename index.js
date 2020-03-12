@@ -16,7 +16,7 @@ try {
     console.log('====================================');
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = './package.json';
+    const testFolder = __dirname + '/package.json';
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
     const content = fs.readFileSync(testFolder, 'utf8')
