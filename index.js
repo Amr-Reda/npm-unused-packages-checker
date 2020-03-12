@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
 const Check = require('./src/check');
+const path = require('path');
 
 try {
     // // `who-to-greet` input defined in action metadata file
@@ -27,7 +28,8 @@ try {
         console.log('file ',file);
     });
     console.log('====================================');
-    fs.readdirSync(__dirname + '/').forEach(file => {
+    let dir = path.join(__dirname, testFolder)
+    fs.readdirSync(dir).forEach(file => {
       console.log('file2 ',file);
     });
     // fs.readdirSync('/').forEach(file => {
