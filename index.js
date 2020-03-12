@@ -28,7 +28,7 @@ try {
         const element = packages[package];
         NOT_USED_PACKAGES.push(...element.unUsedPackages)
     }
-    core.setOutput("NOT_USED_PACKAGES", NOT_USED_PACKAGES);
+    core.setOutput("NOT_USED_PACKAGES", JSON.stringify(NOT_USED_PACKAGES));
     
     // const testFolder = './';
     // // console.log('github.context.workflow ', github.context.);
