@@ -2,16 +2,11 @@ const fs = require('fs');
 const path = require('path')
 
 const resultHandler = (report) => {
-    let repoFullPath = process.cwd()
-    // let repoFullPath = __dirname + '/../'
-    // // let repoFullPath = __dirname
-    let usedPackages = []
+        
+    // get all dependencies names that used by developer code
     let packages = []
-
     for (const key in report.results) {
         const file = report.results[key]
-
-        let filePath = file.filePath.replace(repoFullPath, '');
 
         file.messages.map((ruleObj) => {         
 
@@ -22,8 +17,10 @@ const resultHandler = (report) => {
         })
     }
 
+    // get all files paths in the repo
+    // then filter paths to package.json files only
+    let repoFullPath = process.cwd()
     let allFilesPaths = getAllFiles(repoFullPath)
-
     let allPackagesJsonPaths = []
     for (const filePath of allFilesPaths) {
         if (filePath.lastIndexOf('package.json') == filePath.length - 12) {
@@ -31,6 +28,10 @@ const resultHandler = (report) => {
         }
     }
     
+    // read all the package.json of the repo
+    // then get the dependencies in the package.json and compare it with package required in the code
+    // then return all used packages in package.json and required in the code
+    let usedPackages = []
     for (const packageJsonPath of allPackagesJsonPaths) {
         let packageDependencies = getPackages(packageJsonPath)
 
