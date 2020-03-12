@@ -1,4 +1,5 @@
 const { CLIEngine } = require('eslint');
+const fs = require('fs');
 
 const check = (ignoredPaths) => {
     let cliConfig = {
@@ -36,7 +37,7 @@ const check = (ignoredPaths) => {
     fs.readdirSync(testFolder).forEach(file => {
         console.log('file ',file);
     });
-    
+
     const cli = new CLIEngine(cliConfig)
     try {
         let report = cli.executeOnFiles(['/'])
