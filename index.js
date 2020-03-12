@@ -1,9 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const fs = require('fs');
 const Check = require('./src/check');
 const ResultHandler = require('./src/resultHandler');
-const path = require('path');
 
 try {
     // // `who-to-greet` input defined in action metadata file
@@ -25,7 +23,12 @@ try {
     // console.log('=======unUsedPackages=============================');
     // console.log(packages.unUsedPackages);
     // console.log('====================================');
-    core.setOutput("NOT_USED_PACKAGES", "test");
+    let NOT_USED_PACKAGES = []
+    for (const package in packages) {
+        const element = packages[package];
+        NOT_USED_PACKAGES.push(...element.unUsedPackages)
+    }
+    core.setOutput("NOT_USED_PACKAGES", NOT_USED_PACKAGES);
     
     // const testFolder = './';
     // // console.log('github.context.workflow ', github.context.);
