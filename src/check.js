@@ -29,7 +29,7 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
-    const testFolder = './';
+    const testFolder = path.join(__dirname, './');
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
     // const content = fs.readFileSync(testFolder, 'utf8')
