@@ -15,6 +15,9 @@ try {
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
     });
+    fs.readdirSync('/').forEach(file => {
+      console.log(file);
+    });
     //   // Get the JSON webhook payload for the event that triggered the workflow
     //   const payload = JSON.stringify(github.context.payload, undefined, 2)
     //   console.log(`The event payload: ${payload}`);
