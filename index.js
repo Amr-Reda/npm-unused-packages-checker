@@ -9,9 +9,9 @@ try {
 
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = '/home/runner/work/with-packagelock';
-    console.log(github.context.workflow);
-    // console.log(github.context.repo.repo);
+    const testFolder = '/home/runner/work/with-packagelock/with-packagelock';
+    console.log('github.context.workflow ', github.context.workflow);
+    console.log(github.context.repo.repo);
     
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
