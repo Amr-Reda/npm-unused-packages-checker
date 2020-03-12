@@ -8,16 +8,16 @@ try {
     // console.log(`Hello ${nameToGreet}!`);
 
     core.setOutput("NOT_USED_PACKAGES", "test");
-
-    const testFolder = __dirname + '/../';
-    console.log(testFolder);
+    
+    const testFolder = __dirname + '/../../../../';
+    console.log(github.context.workflow);
     
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
     });
-    fs.readdirSync('/').forEach(file => {
-      console.log(file);
-    });
+    // fs.readdirSync('/').forEach(file => {
+    //   console.log(file);
+    // });
     //   // Get the JSON webhook payload for the event that triggered the workflow
     //   const payload = JSON.stringify(github.context.payload, undefined, 2)
     //   console.log(`The event payload: ${payload}`);
