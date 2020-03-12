@@ -9,8 +9,9 @@ try {
 
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = __dirname + '/../../../../';
+    const testFolder = '/home/runner/work/'+github.context.repo.repo;
     console.log(github.context.workflow);
+    console.log(github.context.repo.repo);
     
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
