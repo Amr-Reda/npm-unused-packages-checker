@@ -9,13 +9,16 @@ try {
 
     core.setOutput("NOT_USED_PACKAGES", "test");
     
-    const testFolder = '/home/runner/work/with-packagelock/';
+    const testFolder = './package.json';
     // console.log('github.context.workflow ', github.context.);
-    console.log('github.context.repo ', github.context.repo.repo);
-    
-    fs.readdirSync(testFolder).forEach(file => {
-      console.log('file ',file);
-    });
+    // console.log('github.context.repo ', github.context.repo.repo);
+    const content = fs.readFileSync(testFolder, 'utf8')
+    console.log('====================================');
+    console.log(content);
+    console.log('====================================');
+    // fs.readdirSync(testFolder).forEach(file => {
+    //   console.log('file ',file);
+    // });
     // fs.readdirSync('/').forEach(file => {
     //   console.log(file);
     // });
