@@ -9,7 +9,8 @@ try {
 
     core.setOutput("NOT_USED_PACKAGES", "test");
 
-    const testFolder = __dirname;
+    const testFolder = __dirname + '/../';
+    console.log(testFolder);
     
     fs.readdirSync(testFolder).forEach(file => {
       console.log(file);
