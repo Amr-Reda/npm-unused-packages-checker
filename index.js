@@ -13,7 +13,7 @@ try {
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
     const content = fs.readFileSync(testFolder, 'utf8')
-    console.log('====================================');
+    console.log('=ff===================================');
     console.log(content);
     console.log('====================================');
     // fs.readdirSync(testFolder).forEach(file => {
