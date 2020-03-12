@@ -21,6 +21,7 @@ const check = (ignoredPaths) => {
                     jsx: true
                 }
             },
+            resolvePluginsRelativeTo: __dirname,
             plugins: [
                 "package-detection"
             ],
