@@ -1,14 +1,9 @@
 const { CLIEngine } = require('eslint');
-const fs = require('fs');
-const path = require('path');
 
 const check = (ignoredPaths) => {
-    console.log('====================================');
-    console.log(process.cwd());
-    console.log('====================================');
+
     let cliConfig = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
-        // resolvePluginsRelativeTo: '/home/runner/work/_actions/Amr-Reda/npm-unused-packages-checker/master/src/',
         cwd: __dirname,
         baseConfig: {
             parser: "@typescript-eslint/parser",
@@ -34,31 +29,19 @@ const check = (ignoredPaths) => {
         useEslintrc: false,
     }
 
-    // const testFolder = '/home/runner/work/with-packagelock/with-packagelock/';
-    // // console.log('github.context.workflow ', github.context.);
-    // // console.log('github.context.repo ', github.context.repo.repo);
-    // // const content = fs.readFileSync(testFolder, 'utf8')
-    // // console.log('=ff===================================');
-    // // console.log(content);
-    // fs.readdirSync(testFolder).forEach(file => {
-    //     console.log('file=> ',file);
-    // });
-
     const cli = new CLIEngine(cliConfig)
-    // cli.getConfigForFile()
     try {
         
         let report = cli.executeOnFiles([process.cwd() + '/'])
+        // let report = cli.executeOnFiles([ './'])
         //console.log(JSON.stringify(report,null,2)); 
         return report
     } catch (error) {
         
-        if (error.message.indexOf('No files matching') == -1) {
-            //TODO: report problem in the rules
-            console.log(error);
-        }else{
+        if (error.message.indexOf('No files matching') != -1) {
             console.log(error);
         }
+
         return {
             results: []
         }

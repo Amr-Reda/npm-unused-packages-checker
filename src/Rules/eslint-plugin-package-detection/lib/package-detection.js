@@ -2,8 +2,6 @@
 module.exports = {
     
     create: function (context) {
-        console.log("HERE");
-        
         return {
             CallExpression: function (node) {
                 
