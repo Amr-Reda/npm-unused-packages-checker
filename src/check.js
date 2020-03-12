@@ -1,36 +1,37 @@
 const { CLIEngine } = require('eslint');
 const fs = require('fs');
 const path = require('path');
-// let test = require('@typescript-eslint/parser');
-
-let cliConfig = {
-    extensions: ['.js', '.ts', '.jsx', '.tsx'],
-    baseConfig: {
-        // parser: "@typescript-eslint/parser",
-        env: {
-            node: true,
-            es6: true
-        },
-        parserOptions: {
-            "sourceType": "module",
-            ecmaVersion: 10,
-            ecmaFeatures: {
-                jsx: true
-            }
-        },
-        plugins: [
-            "package-detection"
-        ],
-        rules: {
-            "package-detection/package-detection": 2
-        },
-        ignorePatterns: []
-    },
-    useEslintrc: false,
-}
 
 const check = (ignoredPaths) => {
-    cliConfig.baseConfig.ignorePatterns.push(...ignoredPaths)
+    console.log('====================================');
+    console.log(__dirname);
+    console.log('====================================');
+    let cliConfig = {
+        extensions: ['.js', '.ts', '.jsx', '.tsx'],
+        baseConfig: {
+            parser: "@typescript-eslint/parser",
+            env: {
+                node: true,
+                es6: true
+            },
+            parserOptions: {
+                "sourceType": "module",
+                ecmaVersion: 10,
+                ecmaFeatures: {
+                    jsx: true
+                }
+            },
+            plugins: [
+                "package-detection"
+            ],
+            rules: {
+                "package-detection/package-detection": 2
+            },
+            ignorePatterns: ignoredPaths
+        },
+        useEslintrc: false,
+    }
+
     const testFolder = './';
     // console.log('github.context.workflow ', github.context.);
     // console.log('github.context.repo ', github.context.repo.repo);
@@ -44,7 +45,7 @@ const check = (ignoredPaths) => {
     const cli = new CLIEngine(cliConfig)
     try {
         
-        let report = cli.executeOnFiles(['./'])
+        let report = cli.executeOnFiles(['/home/runner/work/with-packagelock/with-packagelock/'])
         //console.log(JSON.stringify(report,null,2)); 
         return report
     } catch (error) {
