@@ -1,7 +1,7 @@
 {
   "name": "npm-unused-packages-checker",
   "version": "1.0.0",
-  "description": "github action for check that dependencies in package.json and not used in the code",
+  "description": "Github action check for dependencies in package.json that not used in the code",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
