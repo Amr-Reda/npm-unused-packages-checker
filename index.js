@@ -17,8 +17,8 @@ try {
     for (const package in packages) {
         const element = packages[package];
         console.log('- IN ' + package);
-        console.log('  > USED PACKAGES ' + element.usedPackages);
-        console.log('  > UNUSED PACKAGES ' + element.unUsedPackages);
+        console.log('  > UNUSED PACKAGES: [ ' + element.unUsedPackages + ' ]');
+        console.log('  > USED PACKAGES: [ ' + element.usedPackages + ' ]');
         
         NOT_USED_PACKAGES.push(...element.unUsedPackages)
     }
