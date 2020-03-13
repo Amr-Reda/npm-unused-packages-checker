@@ -7,17 +7,20 @@ try {
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput('who-to-greet');
     // console.log(`Hello ${nameToGreet}!`);
-    const ignoredPaths = core.getInput('IGNORE_PATHS');
-    const ignoredPackages = core.getInput('IGNORE_PACKAGES');
+    let ignoredPaths = core.getInput('IGNORE_PATHS');
+    let ignoredPackages = core.getInput('IGNORE_PACKAGES');
+    try {
+        if (ignoredPaths) ignoredPaths = JSON.parse(ignoredPaths)
+        if (ignoredPackages) ignoredPackages = JSON.parse(ignoredPackages)
+    } catch (error) {
+        console.log(error);
+    }
     console.log('===ignoredPaths=================================');
     console.log(ignoredPaths);
     console.log('====ignoredPackages================================');
     console.log(ignoredPackages);
     console.log('====================================');
 
-    console.log('====================================');
-    console.log(typeof ignoredPaths);
-    console.log('====================================');
     let result = Check(ignoredPaths)
     let packages = ResultHandler(result, ignoredPackages)
     console.log('=======packages=============================');
