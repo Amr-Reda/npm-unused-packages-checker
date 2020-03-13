@@ -1,5 +1,6 @@
 name: 'npm unused packages checker'
 description: 'check all dependencies are used in the code'
+author: 'Amr-Reda'
 inputs:
   IGNORE_PATTERNS:
     description: 'list of Glob patterns for paths to ignore'
@@ -15,3 +16,6 @@ outputs:
 runs:
   using: 'node12'
   main: 'index.js'
+branding:
+  icon: 'folder'
+  color: 'yellow'
